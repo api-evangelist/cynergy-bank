@@ -1,0 +1,98 @@
+aid: cynergy-bank
+name: Cynergy Bank
+review:
+  question: >-
+    Does Cynergy Bank expose a public, documented Open Banking API surface, is a live
+    Open Data endpoint confirmable, and what is the auth model and spec provenance of
+    its OBIE Read/Write APIs?
+  answer: partial
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: >-
+    Cynergy Bank is an FCA/PRA-authorised UK specialist bank (FCA ref 575105), formed
+    in December 2018 from the acquisition of Bank of Cyprus UK by Cynergy Capital. It
+    is a PSD2 ASPSP but not a CMA9 bank. It operates a live Open Banking developer
+    portal at https://developer.openbanking.cynergybank.co.uk/ (HTTP 200, a WSO2 API
+    Manager DevPortal single-page app), and a customer-facing Open Banking page at
+    https://www.cynergybank.co.uk/support/open-banking (HTTP 200). The bank documents
+    the three OBIE Read/Write API families — Account & Transaction Information (AIS /
+    AISP), Payment Initiation (PIS / PISP), and Confirmation of Funds (CBPII) — for
+    FCA/EEA-regulated Third Party Providers. Access is FAPI-grade: OAuth2/OIDC, PSD2
+    strong customer authentication, and mutual-TLS client authentication using
+    OBIE/eIDAS certificates. No public production API base host could be confirmed:
+    the former WSO2 store host openbanking.cynergybank.co.uk no longer resolves in
+    DNS, and the live production TPP endpoints are OBIE-directory-registered and
+    mTLS/eIDAS-gated (not reachable anonymously). As a non-CMA9 specialist lender,
+    Cynergy is not mandated to publish the CMA Open Data reference APIs (ATMs,
+    branches, product reference data); no Open Data endpoint was found or confirmed.
+  openDataConfirmed: false
+  openDataBaseURL: ""
+  openDataNote: >-
+    Cynergy Bank is not a CMA9 bank and does not appear to publish the unauthenticated
+    CMA Open Data reference APIs. Probes of candidate Open Data hosts/paths (e.g.
+    /open-banking/v2.3/atms, /open-data/v2.3/atms on cynergybank.co.uk and the former
+    openbanking.cynergybank.co.uk) failed to connect (HTTP 000 / no DNS). No public
+    Open Data base URL is represented because none was confirmed and none must be
+    invented.
+  readWriteSpecs: true
+  specProvenance: >-
+    The OpenAPI documents in openapi/ are the SHARED OBIE Read/Write API Standard
+    specifications (Account & Transaction, Payment Initiation, Confirmation of Funds,
+    all v4.0.1), harvested verbatim from OpenBankingUK/read-write-api-specs. They are
+    the standard Cynergy Bank's interface conforms to, NOT Cynergy-proprietary API
+    contracts. Cynergy's own developer portal documents these product families;
+    third-party reference (OpenBankingTracker, Enable Banking) records historical
+    conformance at OBIE Read/Write v3.0/v3.1.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: OBIE Read/Write RESTful APIs (AIS/PIS/CBPII), FAPI-secured, JSON over HTTPS.
+    - protocol: mTLS
+      scheme: https
+      documented: true
+      note: Mutual-TLS client authentication with OBIE/eIDAS certificates required for TPP access.
+  authModel:
+    - OAuth2/OIDC (FAPI profile)
+    - PSD2 Strong Customer Authentication (SCA)
+    - Mutual-TLS (OBIE/eIDAS certificates)
+  probes:
+    - url: https://www.cynergybank.co.uk/
+      status: 200
+    - url: https://www.cynergybank.co.uk/support/open-banking
+      status: 200
+    - url: https://developer.openbanking.cynergybank.co.uk/
+      status: 200
+      note: Live WSO2 API Manager DevPortal SPA (JS-rendered; API catalogue not machine-readable anonymously).
+    - url: https://openbanking.cynergybank.co.uk/store/
+      status: 000
+      note: Former WSO2 store host no longer resolves in DNS.
+    - url: https://openbanking.cynergybank.co.uk/.well-known/openid-configuration
+      status: 000
+      note: No DNS resolution.
+    - url: https://api.cynergybank.co.uk/open-banking/v2.3/atms
+      status: 000
+      note: No Open Data endpoint confirmed.
+  developerPortal: https://developer.openbanking.cynergybank.co.uk/
+sources:
+  - url: https://www.cynergybank.co.uk/support/open-banking
+    type: Documentation
+    note: Bank's Open Banking overview; links out to the developer portal.
+  - url: https://developer.openbanking.cynergybank.co.uk/
+    type: DeveloperPortal
+    note: Live WSO2 DevPortal for Cynergy Bank Open Banking APIs.
+  - url: https://www.openbankingtracker.com/provider/cynergy-bank
+    type: Reference
+    note: Records AIS/PIS/CoF at v3.0 and aggregator coverage (Plaid, Tink, GoCardless, Finexer).
+  - url: https://github.com/OpenBankingUK/read-write-api-specs
+    type: OpenAPI
+    note: Source of the shared OBIE Read/Write standard specs harvested into openapi/ (v4.0.1).
+actions:
+  openapiHarvested: true
+  openapiProvenance: OBIE Read/Write standard (shared), not bank-proprietary
+  reason: >-
+    Bank publishes a live developer portal and documents the OBIE Read/Write AIS/PIS/
+    CBPII families, but exposes no anonymously reachable machine-readable contract and
+    no Open Data endpoint. The shared OBIE standard specs the interface conforms to
+    were harvested and clearly labelled as the standard rather than a Cynergy contract.

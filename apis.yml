@@ -1,0 +1,125 @@
+aid: cynergy-bank
+url: https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/apis.yml
+name: Cynergy Bank
+kind: company
+description: >-
+  Cynergy Bank is an FCA- and PRA-authorised UK specialist bank (FCA reference
+  575105) serving the blended personal and business banking needs of business
+  owners, property entrepreneurs, and family businesses. It was formed in December
+  2018 when Cynergy Capital acquired Bank of Cyprus UK for approximately £103m and
+  rebranded the business as Cynergy Bank. Although it is not one of the nine
+  CMA-mandated banks (CMA9), as a UK ASPSP it complies with PSD2 and the UK Open
+  Banking Standard, publishing a dedicated third-party interface for the Open
+  Banking Implementation Entity (OBIE) Read/Write APIs — Account & Transaction
+  Information (AIS), Payment Initiation (PIS), and Confirmation of Funds (CBPII).
+  Access is restricted to FCA- or EEA-regulated Third Party Providers and is
+  secured with FAPI-grade OAuth2/OIDC, mutual-TLS client authentication, and PSD2
+  strong customer authentication using OBIE/eIDAS certificates, onboarded through
+  the bank's Open Banking developer portal.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- Open Banking
+- PSD2
+- OBIE
+- United Kingdom
+- Payments
+- Account Information
+- Confirmation of Funds
+- Specialist Lender
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: cynergy-bank:cynergy-bank-account-information-api
+  name: Cynergy Bank Account & Transaction Information API (AIS)
+  description: >-
+    Cynergy Bank's implementation of the OBIE Read/Write Account & Transaction
+    Information (AISP) API, allowing FCA/EEA-regulated Account Information Service
+    Providers to retrieve customer account, balance, transaction, and product data
+    with customer consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). The harvested
+    OpenAPI is the shared OBIE Read/Write standard the interface conforms to, not a
+    Cynergy-proprietary contract.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Account Information
+  - AISP
+  - Open Banking
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-payment-initiation-api
+  name: Cynergy Bank Payment Initiation API (PIS)
+  description: >-
+    Cynergy Bank's implementation of the OBIE Read/Write Payment Initiation (PISP)
+    API, allowing FCA/EEA-regulated Payment Initiation Service Providers to initiate
+    domestic and scheduled payments on behalf of customers with their consent.
+    FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). The harvested OpenAPI is the shared
+    OBIE Read/Write standard the interface conforms to, not a Cynergy-proprietary
+    contract.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Payment Initiation
+  - PISP
+  - Open Banking
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-confirmation-of-funds-api
+  name: Cynergy Bank Confirmation of Funds API (CBPII)
+  description: >-
+    Cynergy Bank's implementation of the OBIE Read/Write Confirmation of Funds
+    (CBPII) API, allowing regulated Card Based Payment Instrument Issuers to confirm
+    whether sufficient funds are available on a customer account with the customer's
+    consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). The harvested OpenAPI is the
+    shared OBIE Read/Write standard the interface conforms to, not a
+    Cynergy-proprietary contract.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Confirmation of Funds
+  - CBPII
+  - Open Banking
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+common:
+- type: Website
+  url: https://www.cynergybank.co.uk/
+- type: DeveloperPortal
+  url: https://developer.openbanking.cynergybank.co.uk/
+- type: Documentation
+  url: https://www.cynergybank.co.uk/support/open-banking
+- type: LinkedIn
+  url: https://uk.linkedin.com/company/cynergy-bank
+- type: Support
+  url: https://www.cynergybank.co.uk/support/
+- type: PrivacyPolicy
+  url: https://www.cynergybank.co.uk/privacy-policy
+- type: TermsOfService
+  url: https://www.cynergybank.co.uk/privacy-policy/legal-cynergy-bank
+- type: DocumentLibrary
+  url: https://www.cynergybank.co.uk/document-library
+- type: Security
+  url: https://www.cynergybank.co.uk/support/security-and-fraud/information-security
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
