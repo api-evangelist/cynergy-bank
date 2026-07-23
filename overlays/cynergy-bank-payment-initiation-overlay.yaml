@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Cynergy Bank payment-initiation (OBIE Read/Write)
+  version: 1.0.0
+extends: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provenance: OBIE Read/Write API Standard (shared), harvested from OpenBankingUK/read-write-api-specs;
+      not a Cynergy-proprietary contract.
+    x-apievangelist-conforms:
+    - fapi-1-advanced
+    - psd2
+    - uk-open-banking-read-write
+    - oauth2
+    - oidc
+    - mutual-tls
+    - jws-message-signing
+    x-apievangelist-auth: oauth2 (clientCredentials + authorizationCode) over mTLS with OBIE/eIDAS certificates;
+      PSD2 SCA.
+    x-apievangelist-idempotency: x-idempotency-key required on payment/consent POST operations (24h window).

@@ -1,0 +1,103 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/cynergy-bank-account-information-obie-standard-openapi.yaml,
+  openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml,
+  openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml
+note: >-
+  Cross-cutting request/response semantics for Cynergy Bank's OBIE Read/Write
+  Open Banking interface (Account & Transaction, Payment Initiation, Confirmation
+  of Funds — all v4.0.1). Derived from the harvested OBIE standard specifications
+  the interface conforms to; these are the standardised UK Open Banking
+  conventions (FAPI profile), not Cynergy-proprietary rules.
+authentication:
+  style: oauth2
+  profile: FAPI 1.0 Advanced (UK Open Banking Read/Write)
+  flows:
+  - clientCredentials  # TPPOAuth2Security — TPP-to-ASPSP application access
+  - authorizationCode  # PSUOAuth2Security — PSU consent with strong customer authentication
+  client_authentication: mutual-TLS (mTLS) with OBIE/eIDAS transport certificates
+  request_signing:
+    header: x-jws-signature
+    required: true  # detached JWS signature required on payment/consent write operations
+    note: JWS (JAdES/detached) message signature per OBIE Read/Write security profile.
+  see: authentication/cynergy-bank-authentication.yml
+idempotency:
+  supported: true
+  header: x-idempotency-key
+  required: true  # required on all payment and consent POST (write) operations
+  scope: per-endpoint, per-TPP
+  max_length: 40
+  retention: >-
+    OBIE standard — idempotency key valid for a 24-hour window; a repeated request
+    with the same x-idempotency-key and identical payload returns the original
+    resource rather than creating a duplicate.
+  applies_to:
+  - CreateDomesticPayments
+  - CreateDomesticScheduledPayments
+  - CreateDomesticStandingOrders
+  - CreateInternationalPayments
+  - CreateInternationalScheduledPayments
+  - CreateInternationalStandingOrders
+  - CreateFilePayments
+tracing:
+  request_id_header: x-fapi-interaction-id
+  note: >-
+    RFC/UUID interaction id echoed back on responses for end-to-end correlation;
+    part of the FAPI header set (x-fapi-auth-date, x-fapi-customer-ip-address,
+    x-customer-user-agent).
+pagination:
+  style: cursor-link
+  request_params:
+  - page          # OBIE uses page-based cursors on transaction/statement collections
+  response_fields:
+  - Links.Self
+  - Links.First
+  - Links.Prev
+  - Links.Next
+  - Links.Last
+  - Meta.TotalPages
+  - Meta.FirstAvailableDateTime
+  - Meta.LastAvailableDateTime
+  note: >-
+    Large resources (transactions, statements) are paged; navigation via the
+    HAL-style Links object with a TotalPages count in Meta.
+filtering:
+  transactions:
+  - fromBookingDateTime
+  - toBookingDateTime
+  statements:
+  - fromStatementDateTime
+  - toStatementDateTime
+envelope:
+  request_root: Data
+  response_root: Data
+  siblings:
+  - Links   # self / pagination navigation
+  - Meta    # counts, available date ranges
+  note: >-
+    Every OBIE Read/Write request and response wraps its payload in a top-level
+    Data object, alongside Links and Meta.
+error_envelope:
+  root: Errors
+  fields:
+  - Code       # top-level HTTP-aligned code
+  - Id         # optional interaction id
+  - Message    # human summary
+  - Errors[].ErrorCode  # UK.OBIE.* status reason code
+  - Errors[].Message
+  - Errors[].Path        # JSON path to the offending field
+  format: OBIE OBErrorResponse1 (not RFC 9457)
+  see: errors/cynergy-bank-problem-types.yml
+versioning:
+  scheme: uri-path
+  current: v4.0.1
+  path_segment: /open-banking/v4.0/{aisp|pisp|cbpii}
+  see: lifecycle/cynergy-bank-lifecycle.yml
+rate_limiting:
+  signalled: true
+  status: 429
+  note: >-
+    ASPSPs return HTTP 429 (Too Many Requests) when TPP polling exceeds the
+    OBIE-permitted rate; specific ceilings are ASPSP/OBIE-directory governed and
+    not published in the standard spec.

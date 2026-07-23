@@ -1,0 +1,468 @@
+generated: '2026-07-23'
+method: derived
+note: Binds each derived MCP candidate tool to its backing OpenAPI operationId. Every tool inherits its
+  real inputSchema from that operation. No GraphQL surface; no MCP-only tools. All tools 1:1 with a REST
+  operation.
+surfaces:
+  openapi:
+  - openapi/cynergy-bank-account-information-obie-standard-openapi.yaml
+  - openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml
+  - openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml
+  graphql: null
+  mcp:
+    url: null
+    status: candidate (no hosted server published)
+  gated: Live REST + auth server are mTLS/eIDAS + OBIE-directory gated; not anonymously reachable.
+crosswalk:
+- tool: create_account_access_consents
+  category: account-information
+  rest:
+  - CreateAccountAccessConsents
+  binding: rest
+  confidence: high
+- tool: get_account_access_consents_consent_id
+  category: account-information
+  rest:
+  - GetAccountAccessConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: delete_account_access_consents_consent_id
+  category: account-information
+  rest:
+  - DeleteAccountAccessConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: get_accounts
+  category: account-information
+  rest:
+  - GetAccounts
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id
+  category: account-information
+  rest:
+  - GetAccountsAccountId
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_balances
+  category: account-information
+  rest:
+  - GetAccountsAccountIdBalances
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_beneficiaries
+  category: account-information
+  rest:
+  - GetAccountsAccountIdBeneficiaries
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_direct_debits
+  category: account-information
+  rest:
+  - GetAccountsAccountIdDirectDebits
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_offers
+  category: account-information
+  rest:
+  - GetAccountsAccountIdOffers
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_parties
+  category: account-information
+  rest:
+  - GetAccountsAccountIdParties
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_party
+  category: account-information
+  rest:
+  - GetAccountsAccountIdParty
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_product
+  category: account-information
+  rest:
+  - GetAccountsAccountIdProduct
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_scheduled_payments
+  category: account-information
+  rest:
+  - GetAccountsAccountIdScheduledPayments
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_standing_orders
+  category: account-information
+  rest:
+  - GetAccountsAccountIdStandingOrders
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_statements
+  category: account-information
+  rest:
+  - GetAccountsAccountIdStatements
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_statements_statement_id
+  category: account-information
+  rest:
+  - GetAccountsAccountIdStatementsStatementId
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_statements_statement_id_file
+  category: account-information
+  rest:
+  - GetAccountsAccountIdStatementsStatementIdFile
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_statements_statement_id_transactions
+  category: account-information
+  rest:
+  - GetAccountsAccountIdStatementsStatementIdTransactions
+  binding: rest
+  confidence: high
+- tool: get_accounts_account_id_transactions
+  category: account-information
+  rest:
+  - GetAccountsAccountIdTransactions
+  binding: rest
+  confidence: high
+- tool: get_balances
+  category: account-information
+  rest:
+  - GetBalances
+  binding: rest
+  confidence: high
+- tool: get_beneficiaries
+  category: account-information
+  rest:
+  - GetBeneficiaries
+  binding: rest
+  confidence: high
+- tool: get_direct_debits
+  category: account-information
+  rest:
+  - GetDirectDebits
+  binding: rest
+  confidence: high
+- tool: get_offers
+  category: account-information
+  rest:
+  - GetOffers
+  binding: rest
+  confidence: high
+- tool: get_party
+  category: account-information
+  rest:
+  - GetParty
+  binding: rest
+  confidence: high
+- tool: get_products
+  category: account-information
+  rest:
+  - GetProducts
+  binding: rest
+  confidence: high
+- tool: get_scheduled_payments
+  category: account-information
+  rest:
+  - GetScheduledPayments
+  binding: rest
+  confidence: high
+- tool: get_standing_orders
+  category: account-information
+  rest:
+  - GetStandingOrders
+  binding: rest
+  confidence: high
+- tool: get_statements
+  category: account-information
+  rest:
+  - GetStatements
+  binding: rest
+  confidence: high
+- tool: get_transactions
+  category: account-information
+  rest:
+  - GetTransactions
+  binding: rest
+  confidence: high
+- tool: create_domestic_payment_consents
+  category: payment-initiation
+  rest:
+  - CreateDomesticPaymentConsents
+  binding: rest
+  confidence: high
+- tool: get_domestic_payment_consents_consent_id
+  category: payment-initiation
+  rest:
+  - GetDomesticPaymentConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: get_domestic_payment_consents_consent_id_funds_confirmation
+  category: payment-initiation
+  rest:
+  - GetDomesticPaymentConsentsConsentIdFundsConfirmation
+  binding: rest
+  confidence: high
+- tool: create_domestic_payments
+  category: payment-initiation
+  rest:
+  - CreateDomesticPayments
+  binding: rest
+  confidence: high
+- tool: get_domestic_payments_domestic_payment_id
+  category: payment-initiation
+  rest:
+  - GetDomesticPaymentsDomesticPaymentId
+  binding: rest
+  confidence: high
+- tool: get_domestic_payments_domestic_payment_id_payment_details
+  category: payment-initiation
+  rest:
+  - GetDomesticPaymentsDomesticPaymentIdPaymentDetails
+  binding: rest
+  confidence: high
+- tool: create_domestic_scheduled_payment_consents
+  category: payment-initiation
+  rest:
+  - CreateDomesticScheduledPaymentConsents
+  binding: rest
+  confidence: high
+- tool: get_domestic_scheduled_payment_consents_consent_id
+  category: payment-initiation
+  rest:
+  - GetDomesticScheduledPaymentConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: create_domestic_scheduled_payments
+  category: payment-initiation
+  rest:
+  - CreateDomesticScheduledPayments
+  binding: rest
+  confidence: high
+- tool: get_domestic_scheduled_payments_domestic_scheduled_payment_id
+  category: payment-initiation
+  rest:
+  - GetDomesticScheduledPaymentsDomesticScheduledPaymentId
+  binding: rest
+  confidence: high
+- tool: get_domestic_scheduled_payments_domestic_scheduled_payment_id_payment_details
+  category: payment-initiation
+  rest:
+  - GetDomesticScheduledPaymentsDomesticScheduledPaymentIdPaymentDetails
+  binding: rest
+  confidence: high
+- tool: create_domestic_standing_order_consents
+  category: payment-initiation
+  rest:
+  - CreateDomesticStandingOrderConsents
+  binding: rest
+  confidence: high
+- tool: get_domestic_standing_order_consents_consent_id
+  category: payment-initiation
+  rest:
+  - GetDomesticStandingOrderConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: create_domestic_standing_orders
+  category: payment-initiation
+  rest:
+  - CreateDomesticStandingOrders
+  binding: rest
+  confidence: high
+- tool: get_domestic_standing_orders_domestic_standing_order_id
+  category: payment-initiation
+  rest:
+  - GetDomesticStandingOrdersDomesticStandingOrderId
+  binding: rest
+  confidence: high
+- tool: get_domestic_standing_orders_domestic_standing_order_id_payment_details
+  category: payment-initiation
+  rest:
+  - GetDomesticStandingOrdersDomesticStandingOrderIdPaymentDetails
+  binding: rest
+  confidence: high
+- tool: create_file_payment_consents
+  category: payment-initiation
+  rest:
+  - CreateFilePaymentConsents
+  binding: rest
+  confidence: high
+- tool: get_file_payment_consents_consent_id
+  category: payment-initiation
+  rest:
+  - GetFilePaymentConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: create_file_payment_consents_consent_id_file
+  category: payment-initiation
+  rest:
+  - CreateFilePaymentConsentsConsentIdFile
+  binding: rest
+  confidence: high
+- tool: get_file_payment_consents_consent_id_file
+  category: payment-initiation
+  rest:
+  - GetFilePaymentConsentsConsentIdFile
+  binding: rest
+  confidence: high
+- tool: create_file_payments
+  category: payment-initiation
+  rest:
+  - CreateFilePayments
+  binding: rest
+  confidence: high
+- tool: get_file_payments_file_payment_id
+  category: payment-initiation
+  rest:
+  - GetFilePaymentsFilePaymentId
+  binding: rest
+  confidence: high
+- tool: get_file_payments_file_payment_id_payment_details
+  category: payment-initiation
+  rest:
+  - GetFilePaymentsFilePaymentIdPaymentDetails
+  binding: rest
+  confidence: high
+- tool: get_file_payments_file_payment_id_report_file
+  category: payment-initiation
+  rest:
+  - GetFilePaymentsFilePaymentIdReportFile
+  binding: rest
+  confidence: high
+- tool: create_international_payment_consents
+  category: payment-initiation
+  rest:
+  - CreateInternationalPaymentConsents
+  binding: rest
+  confidence: high
+- tool: get_international_payment_consents_consent_id
+  category: payment-initiation
+  rest:
+  - GetInternationalPaymentConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: get_international_payment_consents_consent_id_funds_confirmation
+  category: payment-initiation
+  rest:
+  - GetInternationalPaymentConsentsConsentIdFundsConfirmation
+  binding: rest
+  confidence: high
+- tool: create_international_payments
+  category: payment-initiation
+  rest:
+  - CreateInternationalPayments
+  binding: rest
+  confidence: high
+- tool: get_international_payments_international_payment_id
+  category: payment-initiation
+  rest:
+  - GetInternationalPaymentsInternationalPaymentId
+  binding: rest
+  confidence: high
+- tool: get_international_payments_international_payment_id_payment_details
+  category: payment-initiation
+  rest:
+  - GetInternationalPaymentsInternationalPaymentIdPaymentDetails
+  binding: rest
+  confidence: high
+- tool: create_international_scheduled_payment_consents
+  category: payment-initiation
+  rest:
+  - CreateInternationalScheduledPaymentConsents
+  binding: rest
+  confidence: high
+- tool: get_international_scheduled_payment_consents_consent_id
+  category: payment-initiation
+  rest:
+  - GetInternationalScheduledPaymentConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: get_international_scheduled_payment_consents_consent_id_funds_confirmation
+  category: payment-initiation
+  rest:
+  - GetInternationalScheduledPaymentConsentsConsentIdFundsConfirmation
+  binding: rest
+  confidence: high
+- tool: create_international_scheduled_payments
+  category: payment-initiation
+  rest:
+  - CreateInternationalScheduledPayments
+  binding: rest
+  confidence: high
+- tool: get_international_scheduled_payments_international_scheduled_payment_id
+  category: payment-initiation
+  rest:
+  - GetInternationalScheduledPaymentsInternationalScheduledPaymentId
+  binding: rest
+  confidence: high
+- tool: get_international_scheduled_payments_international_scheduled_payment_id_payment_details
+  category: payment-initiation
+  rest:
+  - GetInternationalScheduledPaymentsInternationalScheduledPaymentIdPaymentDetails
+  binding: rest
+  confidence: high
+- tool: create_international_standing_order_consents
+  category: payment-initiation
+  rest:
+  - CreateInternationalStandingOrderConsents
+  binding: rest
+  confidence: high
+- tool: get_international_standing_order_consents_consent_id
+  category: payment-initiation
+  rest:
+  - GetInternationalStandingOrderConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: create_international_standing_orders
+  category: payment-initiation
+  rest:
+  - CreateInternationalStandingOrders
+  binding: rest
+  confidence: high
+- tool: get_international_standing_orders_international_standing_order_payment_id
+  category: payment-initiation
+  rest:
+  - GetInternationalStandingOrdersInternationalStandingOrderPaymentId
+  binding: rest
+  confidence: high
+- tool: get_international_standing_orders_international_standing_order_payment_id_payment_details
+  category: payment-initiation
+  rest:
+  - GetInternationalStandingOrdersInternationalStandingOrderPaymentIdPaymentDetails
+  binding: rest
+  confidence: high
+- tool: create_funds_confirmation_consents
+  category: confirmation-of-funds
+  rest:
+  - CreateFundsConfirmationConsents
+  binding: rest
+  confidence: high
+- tool: get_funds_confirmation_consents_consent_id
+  category: confirmation-of-funds
+  rest:
+  - GetFundsConfirmationConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: delete_funds_confirmation_consents_consent_id
+  category: confirmation-of-funds
+  rest:
+  - DeleteFundsConfirmationConsentsConsentId
+  binding: rest
+  confidence: high
+- tool: create_funds_confirmations
+  category: confirmation-of-funds
+  rest:
+  - CreateFundsConfirmations
+  binding: rest
+  confidence: high
+mcp_only: []
+rest_only: []
+coverage:
+  tools_named: 74
+  tools_bound: 74
+  mcp_only: 0
+  rest_ops_total: 74
+  rest_ops_with_tool: 74

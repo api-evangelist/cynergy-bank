@@ -29,7 +29,7 @@ tags:
 - Confirmation of Funds
 - Specialist Lender
 created: '2026-07-23'
-modified: '2026-07-23'
+modified: '2026-07-24'
 specificationVersion: '0.19'
 apis:
 - aid: cynergy-bank:cynergy-bank-account-information-api
@@ -49,6 +49,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml
+  - type: Overlay
+    url: overlays/cynergy-bank-account-information-overlay.yaml
   - type: Documentation
     url: https://developer.openbanking.cynergybank.co.uk/
   - type: Documentation
@@ -72,6 +74,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml
+  - type: Overlay
+    url: overlays/cynergy-bank-payment-initiation-overlay.yaml
   - type: Documentation
     url: https://developer.openbanking.cynergybank.co.uk/
   - type: Documentation
@@ -95,6 +99,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml
+  - type: Overlay
+    url: overlays/cynergy-bank-confirmation-of-funds-overlay.yaml
   - type: Documentation
     url: https://developer.openbanking.cynergybank.co.uk/
   - type: Documentation
@@ -102,6 +108,34 @@ apis:
   - type: APIReference
     url: https://developer.openbanking.cynergybank.co.uk/
 common:
+- type: AgenticAccess
+  url: agentic-access/cynergy-bank-agentic-access.yml
+- type: Conventions
+  url: conventions/cynergy-bank-conventions.yml
+- type: Idempotency
+  url: conventions/cynergy-bank-conventions.yml
+- type: ErrorCatalog
+  url: errors/cynergy-bank-problem-types.yml
+- type: Conformance
+  url: conformance/cynergy-bank-conformance.yml
+- type: Lifecycle
+  url: lifecycle/cynergy-bank-lifecycle.yml
+- type: DataModel
+  url: data-model/cynergy-bank-data-model.yml
+- type: LLMsTxt
+  url: llms/cynergy-bank-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: MCPServer
+  url: mcp/cynergy-bank-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/cynergy-bank-tool-crosswalk.yml
+- type: DomainSecurity
+  url: security/cynergy-bank-domain-security.yml
+- type: OAuthScopes
+  url: scopes/cynergy-bank-scopes.yml
+- type: Authentication
+  url: authentication/cynergy-bank-authentication.yml
 - type: Website
   url: https://www.cynergybank.co.uk/
 - type: DeveloperPortal

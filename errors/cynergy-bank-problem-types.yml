@@ -1,0 +1,108 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/cynergy-bank-account-information-obie-standard-openapi.yaml,
+  openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml,
+  openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml
+format: obie-oberrorresponse1
+note: >-
+  HTTP error surface derived from the OBIE Read/Write standard responses the
+  Cynergy Bank interface conforms to. Errors are returned in the OBIE
+  OBErrorResponse1 envelope (Code / Id / Message / Errors[]), NOT RFC 9457
+  problem+json. Each Errors[].ErrorCode carries a standardised UK.OBIE.* status
+  reason code; the HTTP status counts below are the actual response objects
+  declared across the three specs.
+envelope:
+  root: Errors
+  item_fields: [ErrorCode, Message, Path, Url]
+  top_fields: [Code, Id, Message]
+http_statuses:
+- status: 400
+  title: Bad Request
+  occurrences: 74
+  meaning: Request failed validation (missing/invalid mandatory field, malformed payload).
+- status: 401
+  title: Unauthorized
+  occurrences: 74
+  meaning: Missing, invalid, or expired access token; failed token introspection.
+- status: 403
+  title: Forbidden
+  occurrences: 74
+  meaning: Token lacks the required scope/consent, or resource not permitted for this TPP.
+- status: 404
+  title: Not Found
+  occurrences: 58
+  meaning: Consent, account, or payment resource id does not exist.
+- status: 405
+  title: Method Not Allowed
+  occurrences: 74
+  meaning: HTTP method not supported on this resource.
+- status: 406
+  title: Not Acceptable
+  occurrences: 74
+  meaning: Requested representation (Accept header) cannot be produced.
+- status: 409
+  title: Conflict
+  occurrences: 13
+  meaning: State conflict — e.g. re-submission conflict or consent already actioned.
+- status: 415
+  title: Unsupported Media Type
+  occurrences: 18
+  meaning: Request Content-Type is not application/json (or the required signed type).
+- status: 422
+  title: Unprocessable Entity
+  occurrences: 15
+  meaning: Semantically invalid request — business-rule rejection (e.g. insufficient funds context, invalid execution date).
+- status: 429
+  title: Too Many Requests
+  occurrences: 74
+  meaning: TPP polling/rate ceiling exceeded; back off and retry per Retry-After.
+- status: 500
+  title: Internal Server Error
+  occurrences: 74
+  meaning: Unexpected ASPSP-side failure (UK.OBIE.UnexpectedError).
+# Standardised OBIE status reason codes (Errors[].ErrorCode) per the UK Open Banking
+# Read/Write standard the interface conforms to. Enum is externalised in the harvested
+# spec; these are the canonical OBIE codes agents should expect.
+obie_error_codes:
+- code: UK.OBIE.Field.Expected
+  meaning: A mandatory field was expected but not supplied.
+- code: UK.OBIE.Field.Invalid
+  meaning: A field failed validation (format, length, or value).
+- code: UK.OBIE.Field.Missing
+  meaning: A mandatory field is missing from the request.
+- code: UK.OBIE.Field.Unexpected
+  meaning: A field was supplied that is not expected in this context.
+- code: UK.OBIE.Header.Invalid
+  meaning: A required header (e.g. x-idempotency-key, x-jws-signature) is invalid.
+- code: UK.OBIE.Header.Missing
+  meaning: A required header is missing.
+- code: UK.OBIE.Resource.Consent.Mismatch
+  meaning: The resource does not match the granted consent.
+- code: UK.OBIE.Resource.InvalidConsentStatus
+  meaning: The consent is not in a status that permits this operation (e.g. not Authorised).
+- code: UK.OBIE.Resource.InvalidFormat
+  meaning: The resource identifier or body format is invalid.
+- code: UK.OBIE.Resource.NotFound
+  meaning: The referenced resource does not exist.
+- code: UK.OBIE.Rules.AfterCutOffDateTime
+  meaning: Request received after the payment cut-off time.
+- code: UK.OBIE.Rules.DuplicateReference
+  meaning: A duplicate reference / idempotency conflict was detected.
+- code: UK.OBIE.Rules.FailsControlSum
+  meaning: File payment control sum does not reconcile.
+- code: UK.OBIE.Signature.Invalid
+  meaning: The x-jws-signature detached JWS failed verification.
+- code: UK.OBIE.Signature.Missing
+  meaning: The required x-jws-signature header was not supplied.
+- code: UK.OBIE.Signature.MissingClaim
+  meaning: A required claim is missing from the JWS signature.
+- code: UK.OBIE.UnexpectedError
+  meaning: An unexpected ASPSP-side error occurred (maps to HTTP 500).
+- code: UK.OBIE.Unsupported.AccountIdentifier
+  meaning: The supplied account identifier scheme is not supported.
+- code: UK.OBIE.Unsupported.Currency
+  meaning: The requested currency is not supported.
+- code: UK.OBIE.Unsupported.Scheme
+  meaning: The requested payment scheme is not supported.
+reference: https://github.com/OpenBankingUK/read-write-api-specs

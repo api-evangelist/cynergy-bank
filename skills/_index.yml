@@ -1,0 +1,31 @@
+generated: '2026-07-23'
+method: generated
+note: >-
+  Agent Skills for Cynergy Bank's OBIE Read/Write interface. Every step is grounded
+  in a real operationId from the harvested standard specs (verified against openapi/).
+skills:
+- file: cynergy-bank-account-information-access.md
+  name: Access Cynergy Bank account & transaction information
+  api: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml
+  operations:
+  - CreateAccountAccessConsents
+  - GetAccountAccessConsentsConsentId
+  - GetAccounts
+  - GetAccountsAccountIdBalances
+  - GetAccountsAccountIdTransactions
+- file: cynergy-bank-initiate-domestic-payment.md
+  name: Initiate a domestic payment via Cynergy Bank
+  api: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml
+  operations:
+  - CreateDomesticPaymentConsents
+  - GetDomesticPaymentConsentsConsentId
+  - GetDomesticPaymentConsentsConsentIdFundsConfirmation
+  - CreateDomesticPayments
+  - GetDomesticPaymentsDomesticPaymentId
+- file: cynergy-bank-confirm-funds.md
+  name: Confirm funds availability via Cynergy Bank (CBPII)
+  api: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml
+  operations:
+  - CreateFundsConfirmationConsents
+  - GetFundsConfirmationConsentsConsentId
+  - CreateFundsConfirmations

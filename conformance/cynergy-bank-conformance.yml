@@ -1,0 +1,50 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/cynergy-bank-*-obie-standard-openapi.yaml; review.yml;
+  https://www.cynergybank.co.uk/support/open-banking
+note: >-
+  Cross-cutting standards conformance for Cynergy Bank's Open Banking interface.
+  Derived from the OBIE Read/Write v4.0.1 standard specs the interface conforms to
+  and the bank's own Open Banking documentation. "conforms" reflects the standard
+  the published interface implements, not an independent audit.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: securitySchemes TPPOAuth2Security (clientCredentials) + PSUOAuth2Security (authorizationCode).
+- id: oidc
+  conforms: true
+  evidence: FAPI/OIDC PSU authentication with strong customer authentication per OBIE Read/Write security profile.
+- id: fapi-1-advanced
+  conforms: true
+  evidence: OBIE Read/Write mandates FAPI 1.0 Advanced (mTLS, JWS request signing, x-fapi-* headers).
+- id: psd2
+  conforms: true
+  evidence: UK ASPSP under PSD2; AIS/PIS/CBPII with SCA and dedicated TPP interface. FCA ref 575105.
+- id: uk-open-banking-read-write
+  conforms: true
+  evidence: Implements the OBIE Read/Write API Standard (Account & Transaction, Payment Initiation, Confirmation of Funds) v4.0.1.
+- id: obie-directory
+  conforms: true
+  evidence: TPP access is OBIE-directory registered; onboarding via the bank's Open Banking developer portal.
+- id: mutual-tls
+  conforms: true
+  evidence: TPP client authentication uses mutual-TLS with OBIE/eIDAS transport certificates.
+- id: jws-message-signing
+  conforms: true
+  evidence: x-jws-signature detached JWS required on payment/consent write operations.
+- id: eidas
+  conforms: true
+  evidence: OBIE/eIDAS QWAC/QSEAL certificates used for transport and signing.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the OBIE OBErrorResponse1 envelope, not application/problem+json.
+- id: idempotency
+  conforms: true
+  evidence: x-idempotency-key required on all payment/consent POST operations (24h window).
+- id: fhir-r4
+  conforms: false
+- id: scim2
+  conforms: false
+- id: odata
+  conforms: false

@@ -1,0 +1,136 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/cynergy-bank-*-obie-standard-openapi.yaml
+note: >-
+  Entity-relationship graph derived from the OBIE Read/Write standard resource
+  hierarchy the Cynergy Bank interface conforms to. Every OBIE Read/Write flow is
+  consent-gated: a Consent resource is created and PSU-authorised before any data
+  or payment resource can be accessed.
+entities:
+- name: AccountAccessConsent
+  domain: account-information
+  id_field: ConsentId
+  description: PSU-authorised consent granting an AISP read access to account data.
+- name: Account
+  domain: account-information
+  id_field: AccountId
+  description: A PSU bank account exposed under an authorised access consent.
+- name: Balance
+  domain: account-information
+  description: Current/available balance snapshot for an account.
+- name: Transaction
+  domain: account-information
+  description: A booked or pending transaction on an account.
+- name: Beneficiary
+  domain: account-information
+- name: DirectDebit
+  domain: account-information
+- name: StandingOrder
+  domain: account-information
+- name: ScheduledPayment
+  domain: account-information
+- name: Statement
+  domain: account-information
+  id_field: StatementId
+- name: Party
+  domain: account-information
+- name: Product
+  domain: account-information
+- name: Offer
+  domain: account-information
+- name: DomesticPaymentConsent
+  domain: payment-initiation
+  id_field: ConsentId
+  description: PSU-authorised consent to initiate a domestic payment.
+- name: DomesticPayment
+  domain: payment-initiation
+  id_field: DomesticPaymentId
+- name: DomesticScheduledPaymentConsent
+  domain: payment-initiation
+  id_field: ConsentId
+- name: DomesticScheduledPayment
+  domain: payment-initiation
+  id_field: DomesticScheduledPaymentId
+- name: DomesticStandingOrderConsent
+  domain: payment-initiation
+  id_field: ConsentId
+- name: DomesticStandingOrder
+  domain: payment-initiation
+  id_field: DomesticStandingOrderId
+- name: InternationalPaymentConsent
+  domain: payment-initiation
+  id_field: ConsentId
+- name: InternationalPayment
+  domain: payment-initiation
+  id_field: InternationalPaymentId
+- name: FilePaymentConsent
+  domain: payment-initiation
+  id_field: ConsentId
+- name: FilePayment
+  domain: payment-initiation
+  id_field: FilePaymentId
+- name: FundsConfirmationConsent
+  domain: confirmation-of-funds
+  id_field: ConsentId
+  description: PSU-authorised consent for a CBPII to check funds availability.
+- name: FundsConfirmation
+  domain: confirmation-of-funds
+  description: Point-in-time yes/no confirmation that funds are available.
+relationships:
+- from: Account
+  type: belongs_to
+  to: AccountAccessConsent
+  via: ConsentId
+- from: Balance
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: Transaction
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: Statement
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: Transaction
+  type: belongs_to
+  to: Statement
+  via: StatementId
+- from: Beneficiary
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: StandingOrder
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: DirectDebit
+  type: belongs_to
+  to: Account
+  via: AccountId
+- from: DomesticPayment
+  type: belongs_to
+  to: DomesticPaymentConsent
+  via: ConsentId
+- from: DomesticScheduledPayment
+  type: belongs_to
+  to: DomesticScheduledPaymentConsent
+  via: ConsentId
+- from: DomesticStandingOrder
+  type: belongs_to
+  to: DomesticStandingOrderConsent
+  via: ConsentId
+- from: InternationalPayment
+  type: belongs_to
+  to: InternationalPaymentConsent
+  via: ConsentId
+- from: FilePayment
+  type: belongs_to
+  to: FilePaymentConsent
+  via: ConsentId
+- from: FundsConfirmation
+  type: belongs_to
+  to: FundsConfirmationConsent
+  via: ConsentId

@@ -1,0 +1,238 @@
+generated: '2026-07-23'
+method: derived
+status: candidate
+note: No official hosted MCP server is published by Cynergy Bank. CANDIDATE tool list derived one-per-operation
+  from the harvested OBIE Read/Write standard specs the interface conforms to. The live surface is FAPI/mTLS/eIDAS-gated
+  and OBIE-directory registered; each tool inputSchema is the parameters+requestBody of its backing operation.
+server:
+  name: cynergy-bank
+  transport: http
+  url: null
+auth:
+  model: oauth2 (FAPI 1.0 Advanced) + mutual-TLS (OBIE/eIDAS)
+  flows:
+  - clientCredentials
+  - authorizationCode
+tools:
+- name: create_account_access_consents
+  description: Create an Account Access Consent
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#CreateAccountAccessConsents
+- name: get_account_access_consents_consent_id
+  description: Get an Account Access Consent
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountAccessConsentsConsentId
+- name: delete_account_access_consents_consent_id
+  description: Delete an Account Access Consent
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#DeleteAccountAccessConsentsConsentId
+- name: get_accounts
+  description: Get Accounts
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccounts
+- name: get_accounts_account_id
+  description: Get an Account by AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountId
+- name: get_accounts_account_id_balances
+  description: Get Balances for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdBalances
+- name: get_accounts_account_id_beneficiaries
+  description: Get Beneficiaries for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdBeneficiaries
+- name: get_accounts_account_id_direct_debits
+  description: Get Direct Debits for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdDirectDebits
+- name: get_accounts_account_id_offers
+  description: Get Offers for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdOffers
+- name: get_accounts_account_id_parties
+  description: Get Parties for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdParties
+- name: get_accounts_account_id_party
+  description: Get Party for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdParty
+- name: get_accounts_account_id_product
+  description: Get Product for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdProduct
+- name: get_accounts_account_id_scheduled_payments
+  description: Get Scheduled Payments for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdScheduledPayments
+- name: get_accounts_account_id_standing_orders
+  description: Get Standing Orders for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdStandingOrders
+- name: get_accounts_account_id_statements
+  description: Get Statements for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdStatements
+- name: get_accounts_account_id_statements_statement_id
+  description: Get Statement by StatementId for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdStatementsStatementId
+- name: get_accounts_account_id_statements_statement_id_file
+  description: Get Statement file by StatementId for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdStatementsStatementIdFile
+- name: get_accounts_account_id_statements_statement_id_transactions
+  description: Get Statement Transactions for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdStatementsStatementIdTransactions
+- name: get_accounts_account_id_transactions
+  description: Get Transactions for an AccountId
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetAccountsAccountIdTransactions
+- name: get_balances
+  description: Get Balances
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetBalances
+- name: get_beneficiaries
+  description: Get Beneficiaries
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetBeneficiaries
+- name: get_direct_debits
+  description: Get Direct Debits
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetDirectDebits
+- name: get_offers
+  description: Get Offers
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetOffers
+- name: get_party
+  description: Get Party
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetParty
+- name: get_products
+  description: Get Products
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetProducts
+- name: get_scheduled_payments
+  description: Get Scheduled Payments
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetScheduledPayments
+- name: get_standing_orders
+  description: Get Standing Orders
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetStandingOrders
+- name: get_statements
+  description: Get Statements
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetStatements
+- name: get_transactions
+  description: Get Transactions
+  source_operation: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml#GetTransactions
+- name: create_domestic_payment_consents
+  description: Create a Domestic Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateDomesticPaymentConsents
+- name: get_domestic_payment_consents_consent_id
+  description: Get a Domestic Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticPaymentConsentsConsentId
+- name: get_domestic_payment_consents_consent_id_funds_confirmation
+  description: Confirm availability of funds for a Domestic Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticPaymentConsentsConsentIdFundsConfirmation
+- name: create_domestic_payments
+  description: Initiate a Domestic Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateDomesticPayments
+- name: get_domestic_payments_domestic_payment_id
+  description: Get a Domestic Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticPaymentsDomesticPaymentId
+- name: get_domestic_payments_domestic_payment_id_payment_details
+  description: Get details of a Domestic Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticPaymentsDomesticPaymentIdPaymentDetails
+- name: create_domestic_scheduled_payment_consents
+  description: Create a Domestic Scheduled Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateDomesticScheduledPaymentConsents
+- name: get_domestic_scheduled_payment_consents_consent_id
+  description: Get a Domestic Scheduled Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticScheduledPaymentConsentsConsentId
+- name: create_domestic_scheduled_payments
+  description: Initiate a Domestic Scheduled Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateDomesticScheduledPayments
+- name: get_domestic_scheduled_payments_domestic_scheduled_payment_id
+  description: Get a Domestic Scheduled Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticScheduledPaymentsDomesticScheduledPaymentId
+- name: get_domestic_scheduled_payments_domestic_scheduled_payment_id_payment_details
+  description: Get details of a Domestic Scheduled Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticScheduledPaymentsDomesticScheduledPaymentIdPaymentDetails
+- name: create_domestic_standing_order_consents
+  description: Create a Domestic Standing Order Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateDomesticStandingOrderConsents
+- name: get_domestic_standing_order_consents_consent_id
+  description: Get a Domestic Standing Order Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticStandingOrderConsentsConsentId
+- name: create_domestic_standing_orders
+  description: Submit a Domestic Standing Order
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateDomesticStandingOrders
+- name: get_domestic_standing_orders_domestic_standing_order_id
+  description: Get a Domestic Standing Order
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticStandingOrdersDomesticStandingOrderId
+- name: get_domestic_standing_orders_domestic_standing_order_id_payment_details
+  description: Get details of a Domestic Standing Order Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetDomesticStandingOrdersDomesticStandingOrderIdPaymentDetails
+- name: create_file_payment_consents
+  description: Create a File Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateFilePaymentConsents
+- name: get_file_payment_consents_consent_id
+  description: Get a File Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetFilePaymentConsentsConsentId
+- name: create_file_payment_consents_consent_id_file
+  description: Upload a File for a ConsentId
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateFilePaymentConsentsConsentIdFile
+- name: get_file_payment_consents_consent_id_file
+  description: Get a File Payment Consent's Uploaded File
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetFilePaymentConsentsConsentIdFile
+- name: create_file_payments
+  description: Submit a File Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateFilePayments
+- name: get_file_payments_file_payment_id
+  description: Get a File Payment by FilePaymentId
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetFilePaymentsFilePaymentId
+- name: get_file_payments_file_payment_id_payment_details
+  description: Get payment details for a File Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetFilePaymentsFilePaymentIdPaymentDetails
+- name: get_file_payments_file_payment_id_report_file
+  description: Get a File Payment's Report File
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetFilePaymentsFilePaymentIdReportFile
+- name: create_international_payment_consents
+  description: Create an International Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateInternationalPaymentConsents
+- name: get_international_payment_consents_consent_id
+  description: Get an International Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalPaymentConsentsConsentId
+- name: get_international_payment_consents_consent_id_funds_confirmation
+  description: Confirm Funds Availability for an International Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalPaymentConsentsConsentIdFundsConfirmation
+- name: create_international_payments
+  description: Initiate an International Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateInternationalPayments
+- name: get_international_payments_international_payment_id
+  description: Get an International Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalPaymentsInternationalPaymentId
+- name: get_international_payments_international_payment_id_payment_details
+  description: Get details of an International Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalPaymentsInternationalPaymentIdPaymentDetails
+- name: create_international_scheduled_payment_consents
+  description: Create an International Scheduled Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateInternationalScheduledPaymentConsents
+- name: get_international_scheduled_payment_consents_consent_id
+  description: Get an International Scheduled Payment Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalScheduledPaymentConsentsConsentId
+- name: get_international_scheduled_payment_consents_consent_id_funds_confirmation
+  description: Confirm Funds Availability for an International Scheduled Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalScheduledPaymentConsentsConsentIdFundsConfirmation
+- name: create_international_scheduled_payments
+  description: Initiate an International Scheduled Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateInternationalScheduledPayments
+- name: get_international_scheduled_payments_international_scheduled_payment_id
+  description: Get an International Scheduled Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalScheduledPaymentsInternationalScheduledPaymentId
+- name: get_international_scheduled_payments_international_scheduled_payment_id_payment_details
+  description: Get details of an International Scheduled Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalScheduledPaymentsInternationalScheduledPaymentIdPaymentDetails
+- name: create_international_standing_order_consents
+  description: Create an International Standing Order Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateInternationalStandingOrderConsents
+- name: get_international_standing_order_consents_consent_id
+  description: Get an International Standing Order Consent
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalStandingOrderConsentsConsentId
+- name: create_international_standing_orders
+  description: Submit an International Standing Order
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#CreateInternationalStandingOrders
+- name: get_international_standing_orders_international_standing_order_payment_id
+  description: Get an International Standing Order
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalStandingOrdersInternationalStandingOrderPaymentId
+- name: get_international_standing_orders_international_standing_order_payment_id_payment_details
+  description: Get details of an International Standing Order Payment
+  source_operation: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml#GetInternationalStandingOrdersInternationalStandingOrderPaymentIdPaymentDetails
+- name: create_funds_confirmation_consents
+  description: Create a Funds Confirmation Consent
+  source_operation: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml#CreateFundsConfirmationConsents
+- name: get_funds_confirmation_consents_consent_id
+  description: Get a Funds Confirmation Consent
+  source_operation: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml#GetFundsConfirmationConsentsConsentId
+- name: delete_funds_confirmation_consents_consent_id
+  description: Delete a Funds Confirmation Consent
+  source_operation: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml#DeleteFundsConfirmationConsentsConsentId
+- name: create_funds_confirmations
+  description: Create a Funds Confirmation Request
+  source_operation: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml#CreateFundsConfirmations

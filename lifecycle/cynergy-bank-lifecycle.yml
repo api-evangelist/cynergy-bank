@@ -1,0 +1,35 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/cynergy-bank-*-obie-standard-openapi.yaml; review.yml
+note: >-
+  Versioning and lifecycle posture for Cynergy Bank's OBIE Read/Write interface,
+  derived from the harvested standard specs and the review. Version cadence is
+  governed by OBIE (Open Banking Limited) release management, which the ASPSP
+  tracks; Cynergy does not publish an independent per-endpoint deprecation policy
+  or a public status page, and none should be invented.
+versioning:
+  scheme: uri-path
+  current: v4.0.1
+  path_segment: /open-banking/v4.0/{aisp|pisp|cbpii}
+  governed_by: Open Banking Limited (OBIE) Read/Write API Standard release management
+  history_note: >-
+    Third-party references (OpenBankingTracker, Enable Banking) record historical
+    conformance at OBIE Read/Write v3.0/v3.1; harvested specs are v4.0.1.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: >-
+    OBIE release management defines version deprecation and migration windows at
+    the standard level; Cynergy does not publish a bank-specific deprecation
+    policy page. No Sunset/Deprecation header support confirmed on the (mTLS-gated)
+    production endpoints.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    PSD2 requires ASPSPs to publish quarterly availability/performance stats for
+    the dedicated interface, but no public machine-readable SLA/availability
+    endpoint was confirmed.
+status_page: null
+deprecated_operations: []  # none flagged deprecated in the harvested specs

@@ -1,0 +1,28 @@
+# Cynergy Bank — Open Banking (OBIE Read/Write)
+
+> Cynergy Bank is an FCA/PRA-authorised UK specialist bank (FCA ref 575105) and a PSD2 ASPSP. It exposes the UK Open Banking (OBIE) Read/Write API families — Account & Transaction Information (AIS), Payment Initiation (PIS), and Confirmation of Funds (CBPII) — to FCA/EEA-regulated Third Party Providers. Access is FAPI 1.0 Advanced: OAuth2/OIDC with PSD2 strong customer authentication, mutual-TLS client authentication, and detached-JWS request signing using OBIE/eIDAS certificates. The OpenAPI documents are the shared OBIE Read/Write standard (v4.0.1) the interface conforms to, not a Cynergy-proprietary contract. The production endpoints are OBIE-directory registered and mTLS/eIDAS-gated; there is no anonymously reachable API host, and as a non-CMA9 bank Cynergy publishes no CMA Open Data reference API.
+
+## APIs
+- [Account & Transaction Information API (AIS)](https://developer.openbanking.cynergybank.co.uk/): 29 operations — account access consents, accounts, balances, transactions, beneficiaries, direct debits, standing orders, scheduled payments, statements, parties, products, offers.
+- [Payment Initiation API (PIS)](https://developer.openbanking.cynergybank.co.uk/): 41 operations — domestic, domestic-scheduled, domestic-standing-order, international, international-scheduled, international-standing-order, and file payments, each with consent + funds-confirmation + submission.
+- [Confirmation of Funds API (CBPII)](https://developer.openbanking.cynergybank.co.uk/): 4 operations — funds-confirmation consents and point-in-time funds confirmations.
+
+## Specs
+- [AIS OpenAPI (OBIE v4.0.1)](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/openapi/cynergy-bank-account-information-obie-standard-openapi.yaml)
+- [PIS OpenAPI (OBIE v4.0.1)](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml)
+- [CBPII OpenAPI (OBIE v4.0.1)](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml)
+- OBIE Read/Write source standard: https://github.com/OpenBankingUK/read-write-api-specs
+
+## Conventions & semantics
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/authentication/cynergy-bank-authentication.yml)
+- [OAuth scopes](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/scopes/cynergy-bank-scopes.yml): accounts, payments, fundsconfirmations
+- [API conventions (idempotency, pagination, tracing, versioning)](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/conventions/cynergy-bank-conventions.yml)
+- [Error catalog (OBIE OBErrorResponse1 + UK.OBIE.* codes)](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/errors/cynergy-bank-problem-types.yml)
+- [Standards conformance (FAPI, PSD2, OBIE, mTLS, JWS)](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/conformance/cynergy-bank-conformance.yml)
+- [Data model / entity relationships](https://raw.githubusercontent.com/api-evangelist/cynergy-bank/refs/heads/main/data-model/cynergy-bank-data-model.yml)
+
+## Docs
+- [Developer portal](https://developer.openbanking.cynergybank.co.uk/)
+- [Open Banking overview](https://www.cynergybank.co.uk/support/open-banking)
+- [Website](https://www.cynergybank.co.uk/)
+- [Information security](https://www.cynergybank.co.uk/support/security-and-fraud/information-security)
