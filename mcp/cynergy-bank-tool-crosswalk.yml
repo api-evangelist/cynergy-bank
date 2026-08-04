@@ -11,7 +11,8 @@ surfaces:
   graphql: null
   mcp:
     url: null
-    status: candidate (no hosted server published)
+    status: candidate
+    status_raw: candidate
   gated: Live REST + auth server are mTLS/eIDAS + OBIE-directory gated; not anonymously reachable.
 crosswalk:
 - tool: create_account_access_consents
