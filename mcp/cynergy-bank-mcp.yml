@@ -236,3 +236,9 @@ tools:
 - name: create_funds_confirmations
   description: Create a Funds Confirmation Request
   source_operation: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml#CreateFundsConfirmations
+deployment:
+  mode: none
+  verified: derived
+  tools: 74
+  checked: '2026-08-12'
+  source: catalog MCP census
