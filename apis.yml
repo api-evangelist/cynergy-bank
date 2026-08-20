@@ -18,6 +18,17 @@ description: >-
   the bank's Open Banking developer portal.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Financial-Services
+- Banking
+- Open Banking
+- PSD2
+- OBIE
+- United Kingdom
+- Payments
+- Account Information
+- Confirmation of Funds
+- Specialist Lender
+tags_raw:
 - Financial Services
 - Banking
 - Open Banking
