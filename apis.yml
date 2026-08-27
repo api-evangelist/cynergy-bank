@@ -43,75 +43,441 @@ created: '2026-07-23'
 modified: '2026-07-24'
 specificationVersion: '0.23'
 apis:
-- aid: cynergy-bank:cynergy-bank-account-information-api
-  name: Cynergy Bank Account & Transaction Information API (AIS)
+- aid: cynergy-bank:cynergy-bank-account-access-consents-api
+  name: Cynergy Bank Account Access Consents API
   description: >-
-    Cynergy Bank's implementation of the OBIE Read/Write Account & Transaction
-    Information (AISP) API, allowing FCA/EEA-regulated Account Information Service
-    Providers to retrieve customer account, balance, transaction, and product data
-    with customer consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). The harvested
-    OpenAPI is the shared OBIE Read/Write standard the interface conforms to, not a
-    Cynergy-proprietary contract.
+    The Account Access Consents API from Cynergy Bank — 2 operation(s) for account access consents.
   humanURL: https://developer.openbanking.cynergybank.co.uk/
   tags:
-  - Account Information
-  - AISP
-  - Open Banking
+  - Account Access Consents
   properties:
   - type: OpenAPI
-    url: openapi/cynergy-bank-account-information-obie-standard-openapi.yaml
-  - type: Overlay
-    url: overlays/cynergy-bank-account-information-overlay.yaml
+    url: openapi/cynergy-bank-account-access-consents-api-openapi.yml
   - type: Documentation
     url: https://developer.openbanking.cynergybank.co.uk/
   - type: Documentation
     url: https://www.cynergybank.co.uk/support/open-banking
   - type: APIReference
     url: https://developer.openbanking.cynergybank.co.uk/
-- aid: cynergy-bank:cynergy-bank-payment-initiation-api
-  name: Cynergy Bank Payment Initiation API (PIS)
-  description: >-
-    Cynergy Bank's implementation of the OBIE Read/Write Payment Initiation (PISP)
-    API, allowing FCA/EEA-regulated Payment Initiation Service Providers to initiate
-    domestic and scheduled payments on behalf of customers with their consent.
-    FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). The harvested OpenAPI is the shared
-    OBIE Read/Write standard the interface conforms to, not a Cynergy-proprietary
-    contract.
+- aid: cynergy-bank:cynergy-bank-accounts-api
+  name: Cynergy Bank Accounts API
+  description: The Accounts API from Cynergy Bank — 2 operation(s) for accounts.
   humanURL: https://developer.openbanking.cynergybank.co.uk/
   tags:
-  - Payment Initiation
-  - PISP
-  - Open Banking
+  - Accounts
   properties:
   - type: OpenAPI
-    url: openapi/cynergy-bank-payment-initiation-obie-standard-openapi.yaml
-  - type: Overlay
-    url: overlays/cynergy-bank-payment-initiation-overlay.yaml
+    url: openapi/cynergy-bank-accounts-api-openapi.yml
   - type: Documentation
     url: https://developer.openbanking.cynergybank.co.uk/
   - type: Documentation
     url: https://www.cynergybank.co.uk/support/open-banking
   - type: APIReference
     url: https://developer.openbanking.cynergybank.co.uk/
-- aid: cynergy-bank:cynergy-bank-confirmation-of-funds-api
-  name: Cynergy Bank Confirmation of Funds API (CBPII)
-  description: >-
-    Cynergy Bank's implementation of the OBIE Read/Write Confirmation of Funds
-    (CBPII) API, allowing regulated Card Based Payment Instrument Issuers to confirm
-    whether sufficient funds are available on a customer account with the customer's
-    consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). The harvested OpenAPI is the
-    shared OBIE Read/Write standard the interface conforms to, not a
-    Cynergy-proprietary contract.
+- aid: cynergy-bank:cynergy-bank-balances-api
+  name: Cynergy Bank Balances API
+  description: The Balances API from Cynergy Bank — 2 operation(s) for balances.
   humanURL: https://developer.openbanking.cynergybank.co.uk/
   tags:
-  - Confirmation of Funds
-  - CBPII
-  - Open Banking
+  - Balances
   properties:
   - type: OpenAPI
-    url: openapi/cynergy-bank-confirmation-of-funds-obie-standard-openapi.yaml
-  - type: Overlay
-    url: overlays/cynergy-bank-confirmation-of-funds-overlay.yaml
+    url: openapi/cynergy-bank-balances-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-beneficiaries-api
+  name: Cynergy Bank Beneficiaries API
+  description: The Beneficiaries API from Cynergy Bank — 2 operation(s) for beneficiaries.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Beneficiaries
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-beneficiaries-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-direct-debits-api
+  name: Cynergy Bank Direct Debits API
+  description: The Direct Debits API from Cynergy Bank — 2 operation(s) for direct debits.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Direct Debits
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-direct-debits-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-domestic-payment-consents-api
+  name: Cynergy Bank Domestic Payment Consents API
+  description: >-
+    The Domestic Payment Consents API from Cynergy Bank — 3 operation(s) for domestic payment consents.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Domestic Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-domestic-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-domestic-payments-api
+  name: Cynergy Bank Domestic Payments API
+  description: The Domestic Payments API from Cynergy Bank — 3 operation(s) for domestic payments.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Domestic Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-domestic-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-domestic-scheduled-payment-consents-api
+  name: Cynergy Bank Domestic Scheduled Payment Consents API
+  description: >-
+    The Domestic Scheduled Payment Consents API from Cynergy Bank — 2 operation(s) for domestic scheduled
+    payment consents.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Domestic Scheduled Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-domestic-scheduled-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-domestic-scheduled-payments-api
+  name: Cynergy Bank Domestic Scheduled Payments API
+  description: >-
+    The Domestic Scheduled Payments API from Cynergy Bank — 3 operation(s) for domestic scheduled payments.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Domestic Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-domestic-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-domestic-standing-order-consents-api
+  name: Cynergy Bank Domestic Standing Order Consents API
+  description: >-
+    The Domestic Standing Order Consents API from Cynergy Bank — 2 operation(s) for domestic standing
+    order consents.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Domestic Standing Order Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-domestic-standing-order-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-domestic-standing-orders-api
+  name: Cynergy Bank Domestic Standing Orders API
+  description: >-
+    The Domestic Standing Orders API from Cynergy Bank — 3 operation(s) for domestic standing orders.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Domestic Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-domestic-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-file-payment-consents-api
+  name: Cynergy Bank File Payment Consents API
+  description: >-
+    The File Payment Consents API from Cynergy Bank — 3 operation(s) for file payment consents.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - File Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-file-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-file-payments-api
+  name: Cynergy Bank File Payments API
+  description: The File Payments API from Cynergy Bank — 4 operation(s) for file payments.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - File Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-file-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-funds-confirmation-consents-api
+  name: Cynergy Bank Funds Confirmation Consents API
+  description: >-
+    The Funds Confirmation Consents API from Cynergy Bank — 2 operation(s) for funds confirmation consents.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Funds Confirmation Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-funds-confirmation-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-funds-confirmations-api
+  name: Cynergy Bank Funds Confirmations API
+  description: The Funds Confirmations API from Cynergy Bank — 1 operation(s) for funds confirmations.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Funds Confirmations
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-funds-confirmations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-international-payment-consents-api
+  name: Cynergy Bank International Payment Consents API
+  description: >-
+    The International Payment Consents API from Cynergy Bank — 3 operation(s) for international payment
+    consents.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - International Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-international-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-international-payments-api
+  name: Cynergy Bank International Payments API
+  description: >-
+    The International Payments API from Cynergy Bank — 3 operation(s) for international payments.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - International Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-international-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-international-scheduled-payments-api
+  name: Cynergy Bank International Scheduled Payments API
+  description: >-
+    The International Scheduled Payments API from Cynergy Bank — 3 operation(s) for international scheduled
+    payments.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - International Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-international-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-international-scheduled-payments-consents-api
+  name: Cynergy Bank International Scheduled Payments Consents API
+  description: >-
+    The International Scheduled Payments Consents API from Cynergy Bank — 3 operation(s) for international
+    scheduled payments consents.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - International Scheduled Payments Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-international-scheduled-payments-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-international-standing-orders-api
+  name: Cynergy Bank International Standing Orders API
+  description: >-
+    The International Standing Orders API from Cynergy Bank — 3 operation(s) for international standing
+    orders.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - International Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-international-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-international-standing-orders-consents-api
+  name: Cynergy Bank International Standing Orders Consents API
+  description: >-
+    The International Standing Orders Consents API from Cynergy Bank — 2 operation(s) for international
+    standing orders consents.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - International Standing Orders Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-international-standing-orders-consents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-offers-api
+  name: Cynergy Bank Offers API
+  description: The Offers API from Cynergy Bank — 2 operation(s) for offers.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-offers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-parties-api
+  name: Cynergy Bank Parties API
+  description: The Parties API from Cynergy Bank — 3 operation(s) for parties.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Parties
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-parties-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-products-api
+  name: Cynergy Bank Products API
+  description: The Products API from Cynergy Bank — 2 operation(s) for products.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-products-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-scheduled-payments-api
+  name: Cynergy Bank Scheduled Payments API
+  description: The Scheduled Payments API from Cynergy Bank — 2 operation(s) for scheduled payments.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-standing-orders-api
+  name: Cynergy Bank Standing Orders API
+  description: The Standing Orders API from Cynergy Bank — 2 operation(s) for standing orders.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-statements-api
+  name: Cynergy Bank Statements API
+  description: The Statements API from Cynergy Bank — 5 operation(s) for statements.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Statements
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-statements-api-openapi.yml
+  - type: Documentation
+    url: https://developer.openbanking.cynergybank.co.uk/
+  - type: Documentation
+    url: https://www.cynergybank.co.uk/support/open-banking
+  - type: APIReference
+    url: https://developer.openbanking.cynergybank.co.uk/
+- aid: cynergy-bank:cynergy-bank-transactions-api
+  name: Cynergy Bank Transactions API
+  description: The Transactions API from Cynergy Bank — 2 operation(s) for transactions.
+  humanURL: https://developer.openbanking.cynergybank.co.uk/
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/cynergy-bank-transactions-api-openapi.yml
   - type: Documentation
     url: https://developer.openbanking.cynergybank.co.uk/
   - type: Documentation
@@ -119,6 +485,12 @@ apis:
   - type: APIReference
     url: https://developer.openbanking.cynergybank.co.uk/
 common:
+- type: Overlay
+  url: overlays/cynergy-bank-account-information-overlay.yaml
+- type: Overlay
+  url: overlays/cynergy-bank-payment-initiation-overlay.yaml
+- type: Overlay
+  url: overlays/cynergy-bank-confirmation-of-funds-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/cynergy-bank-agentic-access.yml
 - type: Conventions
