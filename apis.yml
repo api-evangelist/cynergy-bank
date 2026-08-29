@@ -497,6 +497,9 @@ apis:
   - type: APIReference
     url: https://developer.openbanking.cynergybank.co.uk/
 common:
+- type: CapabilityMap
+  url: capabilities/cynergy-bank-capability-edges.yml
+  name: Cynergy Bank Business Capability Map
 - type: Overlay
   url: overlays/cynergy-bank-account-information-overlay.yaml
 - type: Overlay
