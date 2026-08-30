@@ -76,6 +76,8 @@ apis:
   description: The Accounts API from Cynergy Bank — 2 operation(s) for accounts.
   humanURL: https://developer.openbanking.cynergybank.co.uk/
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -426,6 +428,8 @@ apis:
   description: The Products API from Cynergy Bank — 2 operation(s) for products.
   humanURL: https://developer.openbanking.cynergybank.co.uk/
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -486,6 +490,8 @@ apis:
   description: The Transactions API from Cynergy Bank — 2 operation(s) for transactions.
   humanURL: https://developer.openbanking.cynergybank.co.uk/
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
